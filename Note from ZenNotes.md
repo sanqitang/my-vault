@@ -6,3 +6,12 @@ docker compose down
 docker compose up -d
 ```
 
+```
+volumes:
+  - ${HOST_WATCHED_REPO_PATH:-./watched-repo}:/app/watched-repo
+  - ${HOST_SSH_PRIVATE_KEY_PATH:-~/.ssh/id_rsa}:/root/.ssh/id_rsa:ro
+  - ${HOST_GITCONFIG_PATH:-~/.gitconfig}:/root/.gitconfig:ro
+  - ${HOST_SSH_KNOWN_HOSTS_PATH:-~/.ssh/known_hosts}:/root/.ssh/known_hosts:ro
+  # Add this line:
+  - /etc/localtime:/etc/localtime:ro
+```
