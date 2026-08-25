@@ -1,0 +1,7 @@
+.zennotes/
+.obsidian/
+.trash/
+.smart-env/
+.DS_Store
+*.tmp
+*.bak
