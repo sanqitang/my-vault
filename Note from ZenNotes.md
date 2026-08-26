@@ -15,3 +15,14 @@ volumes:
   # Add this line:
   - /etc/localtime:/etc/localtime:ro
 ```
+
+```
+# Add these two lines:
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        apk add --no-cache tzdata >/dev/null 2>&1
+        ln -snf /usr/share/zoneinfo/$$TZ /etc/localtime
+        echo "$$TZ" > /etc/timezone
+        exec /app/entrypoint.sh
+```
